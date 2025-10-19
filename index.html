@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Календарь задач</title>
+    <link rel="shortcut icon" href="media/icon.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Левая панель -->
+    <div class="sidebar">
+        <div class="home-icon" id="homeIcon"></div>
+        <div class="back-icon" id="backButton"></div>
+        <div class="menu-icon" id="menuButton">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+
+    <!-- Основное содержимое -->
+    <div class="main-content">
+        <!-- Календарь -->
+        <div class="calendar-panel">
+            <div class="calendar-header">Календарь</div>
+            
+            <div class="year-navigation">
+                <span class="nav-arrow" id="prevYear">←</span>
+                <span id="currentYear">2025</span>
+                <span class="nav-arrow" id="nextYear">→</span>
+            </div>
+            
+            <div class="month-navigation">
+                <span class="nav-arrow" id="prevMonth">←</span>
+                <span class="month-name" id="currentMonth">Октябрь</span>
+                <span class="nav-arrow" id="nextMonth">→</span>
+            </div>
+            
+            <div class="calendar-grid" id="calendarGrid">
+                <!-- Дни: ПТ, СБ, ВС + 17, 18, 19 -->
+            </div>
+        </div>
+
+        <!-- Задачи -->
+        <div class="tasks-panel">
+            <div class="tasks-container" id="tasksContainer">
+                <!-- Задачи будут генерироваться JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Закреплённые кнопки внизу -->
+    <div class="fixed-buttons" id="fixedButtons">
+        <button class="btn btn-add" id="addTaskBtn">Добавить новую задачу</button>
+        <button class="btn btn-edit" id="editTaskBtn">Изменить задачу</button>
+        <button class="btn btn-delete" id="deleteTaskBtn">Удалить задачу</button>
+        <button class="btn btn-complete" id="completeTaskBtn">Отметить как выполненную</button>
+    </div>
+
+    <!-- Модальное окно -->
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal">
+            <div class="modal-header">
+                <div class="modal-title" id="modalTitle">Добавить задачу</div>
+                <button class="close-modal" id="closeModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label class="form-label" for="taskTitle">Название задачи</label>
+                    <input type="text" id="taskTitle" class="form-input" placeholder="Введите название задачи">
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="taskDate">Дата</label>
+                    <input type="date" id="taskDate" class="form-input">
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="taskPriority">Приоритет</label>
+                    <select id="taskPriority" class="form-input">
+                        <option value="low">Низкий</option>
+                        <option value="medium" selected>Средний</option>
+                        <option value="high">Высокий</option>
+                    </select>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" id="cancelBtn">Отмена</button>
+                <button class="btn-primary" id="saveBtn">Сохранить</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
